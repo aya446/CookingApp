@@ -1,7 +1,6 @@
 import 'package:cooking_app/widgets/custom_list_Tile.dart';
+import 'package:cooking_app/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter_plus/iconify_flutter_plus.dart';
-import 'package:iconify_flutter_plus/icons/healthicons.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -23,22 +22,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Row(
-                    children: [
-                      Iconify(Healthicons.ui_user_profile_outline,
-                          color: Colors.white, size: 45),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        'Hello!',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontFamily: 'Jomhuria'),
-                      ),
-                    ],
-                  ),
+                  child: DrawerHeaderr(),
                 ),
                 divider(),
                 const SizedBox(
@@ -83,3 +67,4 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 }
+

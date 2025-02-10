@@ -1,4 +1,4 @@
-import 'package:cooking_app/screens/Home_page.dart';
+import 'package:cooking_app/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:iconify_flutter_plus/iconify_flutter_plus.dart';
@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                   HomePage()), 
+                  HomePage()), 
         );
       },
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter_plus/iconify_flutter_plus.dart';
+import 'package:iconify_flutter_plus/icons/ooui.dart';
 
 class CustomWelcomRow extends StatelessWidget {
   const CustomWelcomRow({
@@ -13,23 +15,25 @@ class CustomWelcomRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 18.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           IconButton(
-            icon: const Icon(
-              Icons.menu,
+            icon: const Iconify(
+              Ooui.menu,
               color: Colors.white,
-              size: 30,
+              size: 25,
             ),
             onPressed: () {
               _scaffoldKey.currentState?.openDrawer();
             },
           ),
           const SizedBox(
-            width: 15,
+            width: 8,
           ),
           const Text(
             'Hello There!',
-            style: TextStyle(color: Colors.white, fontSize: 25),
+            style: TextStyle(
+                color: Colors.white, fontSize: 40, fontFamily: 'jomhuria'),
           ),
         ],
       ),
