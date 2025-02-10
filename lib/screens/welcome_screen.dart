@@ -17,13 +17,13 @@ class _WelcomePageState extends State<WelcomePage> {
     super.initState();
 
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
       () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  const HomePage()), 
+                   HomePage()), 
         );
       },
     );
