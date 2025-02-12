@@ -1,5 +1,6 @@
+import 'package:cooking_app/screens/categories_view.dart';
 import 'package:cooking_app/screens/search_view.dart';
-import 'package:cooking_app/widgets/category_card.dart';
+import 'package:cooking_app/widgets/category_list_view.dart';
 import 'package:cooking_app/widgets/custom_drawer.dart';
 import 'package:cooking_app/widgets/custom_welcome.dart';
 import 'package:cooking_app/widgets/search_bar.dart';
@@ -22,18 +23,40 @@ class HomePage extends StatelessWidget {
           ),
           CustomWelcomRow(scaffoldKey: _scaffoldKey),
           GestureDetector(
-            onTap: (){
-               Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const SearchView();
-                    },
-                  ),
-                );
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const SearchView();
+                  },
+                ),
+              );
             },
-            child: const AbsorbPointer(child: SearchBarLight(focus: false ,)),
+            child: const AbsorbPointer(
+                child: SearchBarLight(
+              focus: false,
+            )),
           ),
-          const CategoryCard()
+          const SizedBox(
+            height: 5,
+          ),
+          const CategoriesListView(),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const CategoriesView();
+                  },
+                ),
+              );
+            },
+            child: const Text(
+              'See all',
+              style: TextStyle(
+                  color: Colors.white, fontFamily: 'jomhuria', fontSize: 25),
+            ),
+          ),
         ],
       ),
     );
