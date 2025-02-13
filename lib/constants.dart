@@ -5,6 +5,8 @@ Color kColor = const Color(0xff9AA7A8);
 
 Color kColor2 = const Color(0xff203334);
 
+Color kColor3 = const Color(0xffCCD0D0);
+
 List<Categorymodel> kCategoryModelList = [
   Categorymodel(
       title: 'Seafood',

@@ -13,11 +13,10 @@ class CategoriesListView extends StatefulWidget {
 class _CategoriesListViewState extends State<CategoriesListView> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      child: SizedBox(
-        height: 280, 
-        width: double.infinity,
+    return SizedBox(
+      height: 182,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: CarouselSlider.builder(
           itemCount: kCategoryModelList.length,
           itemBuilder: (context, index, realIndex) {
@@ -29,11 +28,12 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             );
           },
           options: CarouselOptions(
-            height: 160,
+            height: 120,
             enlargeCenterPage: true,
+            clipBehavior: Clip.none,
             enableInfiniteScroll: true,
             scrollDirection: Axis.horizontal,
-            viewportFraction: 0.35,
+            viewportFraction: 0.36,
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 5),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
