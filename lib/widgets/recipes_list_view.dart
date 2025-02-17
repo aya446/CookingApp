@@ -25,41 +25,38 @@ class _CategoriesListViewState extends State<RecipeListView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 3000,
-      width: double.infinity,
-      child: FutureBuilder(
-        future: recipes,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return const Center(child: Text("Error loading data"));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text("No recipes available"));
-          } else {
-            List<RecipeOfCategoryModel> recipeList = snapshot.data!;
-            return ListView.builder(
-              physics:
-                  !widget.scroll ? const NeverScrollableScrollPhysics() : null,
-              itemCount: recipeList.length,
-              itemBuilder: (context, index) {
-                RecipeOfCategoryModel recipe = recipeList[index];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: RecipesCard(
-                    id: recipe.mealID,
-                    color: index % 2 == 0 ? kColor3 : Colors.white,
-                    right: index % 2 == 0 ? true : false,
-                    textColor: index % 2 == 0 ? Colors.white : kColor2,
-                    //categoryModel: kCategoryModelList2[index],
-                  ),
-                );
-              },
-            );
-          }
-        },
-      ),
+    return FutureBuilder(
+      future: recipes,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator(color: Colors.white,));
+        } else if (snapshot.hasError) {
+          return const Center(child: Text("Error loading data"));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text("No recipes available"));
+        } else {
+          List<RecipeOfCategoryModel> recipeList = snapshot.data!;
+          return ListView.builder(
+            shrinkWrap: true,
+            physics:
+                !widget.scroll ? const NeverScrollableScrollPhysics() : null,
+            itemCount: recipeList.length,
+            itemBuilder: (context, index) {
+              RecipeOfCategoryModel recipe = recipeList[index];
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: RecipesCard(
+                  id: recipe.mealID,
+                  color: index % 2 == 0 ? kColor3 : Colors.white,
+                  right: index % 2 == 0 ? true : false,
+                  textColor: index % 2 == 0 ? Colors.white : kColor2,
+                ),
+              );
+            },
+            padding: EdgeInsets.only(bottom: 100),
+          );
+        }
+      },
     );
   }
 }

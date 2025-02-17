@@ -1,3 +1,4 @@
+import 'package:cooking_app/widgets/recipes_list_view.dart';
 import 'package:flutter/material.dart';
 
 
@@ -38,7 +39,7 @@ class Recipecolumn extends StatelessWidget {
             ),
           ],
         ),
-        //Expanded(child:RecipeListView(scroll: true, categoryName: categoryName,))
+        Expanded(child:RecipeListView(scroll: true, category: categoryName,),)
       ],
     );
   }

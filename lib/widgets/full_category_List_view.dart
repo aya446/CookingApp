@@ -13,19 +13,22 @@ class FullCategoriesListView extends StatefulWidget {
 class _CategoriesListViewState extends State<FullCategoriesListView> {
   @override
   Widget build(BuildContext context) {
-        double itemHeight = 100; // ارتفاع كل عنصر
-    int itemCount = kCategoryModelList2.length; // عدد العناصر
+    double itemHeight = 90; 
+    int itemCount = kCategoryModelList2.length; 
     double totalHeight = itemHeight * itemCount;
     
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: SizedBox(
-        height: totalHeight, 
+        height: totalHeight+100, 
         width: double.infinity,
         child: CarouselSlider.builder(
-          itemCount: kCategoryModelList2.length,
+          itemCount: kCategoryModelList2.length+1,
           itemBuilder: (context, index, realIndex) {
-            return Padding(
+            if (index ==kCategoryModelList2.length){
+              return const SizedBox(height: 50,);
+            }
+             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: FullCategoryCard(
                 categoryModel: kCategoryModelList2[index],
@@ -44,6 +47,7 @@ class _CategoriesListViewState extends State<FullCategoriesListView> {
             //autoPlayAnimationDuration: Duration(milliseconds: 800),
           ),
         ),
+        
       ),
     );
   }

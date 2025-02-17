@@ -1,8 +1,6 @@
 import 'package:cooking_app/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:iconify_flutter_plus/iconify_flutter_plus.dart';
-import 'package:iconify_flutter_plus/icons/lucide.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -21,9 +19,7 @@ class _WelcomePageState extends State<WelcomePage> {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-              builder: (context) =>
-                  HomePage()), 
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       },
     );
@@ -50,10 +46,11 @@ class _WelcomePageState extends State<WelcomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Iconify(
-                Lucide.chef_hat,
-                size: 90,
-                color: Colors.white,
+              Container(
+                width: 120,
+                height: 120,
+                color: Colors.white.withOpacity(0),
+                child: Image.asset('assets/images/ph_chef-hat-thin.png'),
               ).animate().slide(duration: 1.5.seconds, curve: Curves.easeInOut),
               const Text(
                 'Chef Mate',

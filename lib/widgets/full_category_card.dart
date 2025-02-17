@@ -39,7 +39,7 @@ class FullCategoryCard extends StatelessWidget {
                     width: categoryModel.color == kColor2 ? 70 : 0,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 22.0),
+                    padding: const EdgeInsets.only(left: 22.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +77,7 @@ class FullCategoryCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: -22,
+            top: -25,
             left: categoryModel.color == kColor2 ? -35 : 237,
             right: categoryModel.color == kColor2 ? 244 : -35,
             child: Image(image: AssetImage(categoryModel.image)),
